@@ -1,4 +1,4 @@
-I have signed up for the cs1332 Data Structures and Algorithms class on edx.com in order to prepare for starting a masters program at Georgia Tech OMSCS. \
+I have signed up for the cs1332 Data Structures and Algorithms class on edx.com in order to prepare for starting a masters program at Georgia Tech OMSCS. 
 
 Since I am using the free version of edx.com, I was not able to submit these as a graded assignment. I did however make sure they pass the student JUnit tests provided. 
 
