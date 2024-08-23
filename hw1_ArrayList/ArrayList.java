@@ -78,11 +78,9 @@ public class ArrayList<T> implements ArrayListInterface<T> {
         return backingArray[index];
     }
 
+    // Clears the backingArray by assigning it to a new array, then letting the Java garbage collector take care of the rest.
     @Override
     public void clear() {
-        for (T e : backingArray) {
-            e = null;
-        }
         backingArray = (T[]) new Object[INITIAL_CAPACITY];
         size = 0;
     }
