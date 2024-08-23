@@ -3,40 +3,37 @@ import org.junit.runner.OrderWith;
 public class ArrayList<T> implements ArrayListInterface<T> {
     
     public T backingArray[];
-    public int arrayCapacity;
-    public int numOfElements;
+    public int size;
 
     public ArrayList() {
         backingArray = (T[]) new Object[INITIAL_CAPACITY];
-        this.arrayCapacity = INITIAL_CAPACITY;
-        this.numOfElements = 0;
-        
+        this.size = 0;
     }
 
     @Override
     public void addAtIndex(int index, T data) {
         // Exception throws if index is out of bounds or data is null.
-        if (index < 0 || index > numOfElements) {
+        if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Index is out of bounds, unable to comply.");  
         } else if (data == null) {
             throw new IllegalArgumentException("Data is null, unable to comply.");
         }
 
         // If the size of the array is at capacity, make a new array twice as large and copy the data over.
-        if (numOfElements == arrayCapacity){
-            T tmpArray[] = (T[]) new Object[this.arrayCapacity*2];
-            for (int i = 0; i < numOfElements; i++) {
+        if (size == backingArray.length){
+            T tmpArray[] = (T[]) new Object[backingArray.length*2];
+            for (int i = 0; i < size; i++) {
                 tmpArray[i] = backingArray[i];
             }
             backingArray = tmpArray;
         }
 
-        for (int i = numOfElements; i > index; i--) {
+        for (int i = size; i > index; i--) {
                 backingArray[i] = backingArray[i-1];
         }
 
         backingArray[index] = data;
-        numOfElements++;
+        size++;
     }
 
     @Override
@@ -47,22 +44,22 @@ public class ArrayList<T> implements ArrayListInterface<T> {
     @Override 
     public void addToBack(T data)
     {
-        addAtIndex(numOfElements, data);
+        addAtIndex(size, data);
     }
 
     @Override
     public T removeAtIndex(int index) {
         // Exception throws if index is out of bounds. 
-        if (index < 0 || index >= numOfElements) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index is negative, unable to comply.");
         } 
         // Removes data at index.
         T indexData = backingArray[index];
-        for (int i = index; i < numOfElements-1; i++) {
+        for (int i = index; i < size-1; i++) {
             backingArray[i] = backingArray[i+1];
         }
-        backingArray[numOfElements-1] = null;
-        numOfElements--;
+        backingArray[size-1] = null;
+        size--;
         return indexData;
     }
 
@@ -73,7 +70,7 @@ public class ArrayList<T> implements ArrayListInterface<T> {
 
     @Override
     public T removeFromBack() {
-        return removeAtIndex(numOfElements-1);
+        return removeAtIndex(size-1);
     }
 
     @Override
@@ -87,13 +84,12 @@ public class ArrayList<T> implements ArrayListInterface<T> {
             e = null;
         }
         backingArray = (T[]) new Object[INITIAL_CAPACITY];
-        arrayCapacity = INITIAL_CAPACITY;
-        numOfElements = 0;
+        size = 0;
     }
 
     @Override
     public boolean isEmpty() {
-        if (numOfElements > 0) {
+        if (size >= 0) {
             return false;
         } else {
             return true;
@@ -102,7 +98,7 @@ public class ArrayList<T> implements ArrayListInterface<T> {
 
     @Override
     public int size() {
-        return numOfElements;
+        return size;
     }
 
     @Override
