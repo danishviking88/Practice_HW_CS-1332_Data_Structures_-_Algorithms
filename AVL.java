@@ -5,14 +5,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Queue;
 
-/**
- * Your implementation of an AVL Tree.
- *
- * @author Yue Gu
- * @userid ygu65
- * @GTID 903055355
- * @version 1.0
- */
 public class AVL<T extends Comparable<? super T>> implements AVLInterface<T> {
     // DO NOT ADD OR MODIFY INSTANCE VARIABLES.
     private AVLNode<T> root;
