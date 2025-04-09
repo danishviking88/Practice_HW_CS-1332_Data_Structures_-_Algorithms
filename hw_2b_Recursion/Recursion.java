@@ -3,14 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-/**
- * Your implementation of the isPalindrome and gcd methods
- *
- * @author Yue Gu
- * @userid ygu65
- * @GTID 903055355
- * @version 1.0
- */
+
 public class Recursion {
 
     /**
