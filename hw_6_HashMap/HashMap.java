@@ -3,14 +3,7 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.ArrayList;
 
-/**
- * Your implementation of HashMap.
- * 
- * @author Yue Gu
- * @userid ygu65
- * @GTID 903055355
- * @version 1.0
- */
+
 public class HashMap<K, V> implements HashMapInterface<K, V> {
 
     // Do not make any new instance variables.
